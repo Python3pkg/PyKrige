@@ -29,14 +29,14 @@ estimator.fit(X=X, y=y)
 
 
 if hasattr(estimator, 'best_score_'):
-    print('best_score R² = {:.3f}'.format(estimator.best_score_))
-    print('best_params = ', estimator.best_params_)
+    print(('best_score R² = {:.3f}'.format(estimator.best_score_)))
+    print(('best_params = ', estimator.best_params_))
 
 print('\nCV results::')
 if hasattr(estimator, 'cv_results_'):
     for key in ['mean_test_score', 'mean_train_score',
                 'param_method', 'param_variogram_model']:
-        print(' - {} : {}'.format(key, estimator.cv_results_[key]))
+        print((' - {} : {}'.format(key, estimator.cv_results_[key])))
 
 # 3D Kring param opt
 
@@ -57,11 +57,11 @@ estimator.fit(X=X3, y=y)
 
 
 if hasattr(estimator, 'best_score_'):
-    print('best_score R² = {:.3f}'.format(estimator.best_score_))
-    print('best_params = ', estimator.best_params_)
+    print(('best_score R² = {:.3f}'.format(estimator.best_score_)))
+    print(('best_params = ', estimator.best_params_))
 
 print('\nCV results::')
 if hasattr(estimator, 'cv_results_'):
     for key in ['mean_test_score', 'mean_train_score',
                 'param_method', 'param_variogram_model']:
-        print(' - {} : {}'.format(key, estimator.cv_results_[key]))
+        print((' - {} : {}'.format(key, estimator.cv_results_[key])))

@@ -2,7 +2,7 @@
 # pylint: disable= invalid-name,  unused-import
 """For compatibility"""
 
-from __future__ import absolute_import
+
 import sys
 
 

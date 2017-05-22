@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from __future__ import print_function
+
 from time import time
 import numpy as np
 from pykrige.ok import OrdinaryKriging

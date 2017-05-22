@@ -323,6 +323,6 @@ texinfo_documents = [
 #texinfo_no_detailmenu = False
 # The following is used by sphinx.ext.linkcode to provide links to github
 linkcode_resolve = make_linkcode_resolve('pykrige',
-                                         u'https://github.com/bsmurphy/'
+                                         'https://github.com/bsmurphy/'
                                          'PyKrige/blob/{revision}/'
                                          '{package}/{path}#L{lineno}')

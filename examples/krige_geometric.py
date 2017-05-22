@@ -40,16 +40,16 @@ z2, ss2 = OK.execute('grid', grid_lon, grid_lat)
 
 # Print data at equator (last longitude index will show periodicity):
 print("Original data:")
-print("Longitude:",lon.astype(int))
-print("Latitude: ",lat.astype(int))
-print("z:        ",np.array_str(z, precision=2))
+print(("Longitude:",lon.astype(int)))
+print(("Latitude: ",lat.astype(int)))
+print(("z:        ",np.array_str(z, precision=2)))
 print("\nKrige at 60° latitude:\n======================")
-print("Longitude:",grid_lon)
-print("Value:    ",np.array_str(z1[5,:], precision=2))
-print("Sigma²:   ",np.array_str(ss1[5,:], precision=2))
+print(("Longitude:",grid_lon))
+print(("Value:    ",np.array_str(z1[5,:], precision=2)))
+print(("Sigma²:   ",np.array_str(ss1[5,:], precision=2)))
 print("\nIgnoring curvature:\n=====================")
-print("Value:    ",np.array_str(z2[5,:], precision=2))
-print("Sigma²:   ",np.array_str(ss2[5,:], precision=2))
+print(("Value:    ",np.array_str(z2[5,:], precision=2)))
+print(("Sigma²:   ",np.array_str(ss2[5,:], precision=2)))
 
 ##====================================OUTPUT==================================
 # >>> Original data:

@@ -1,7 +1,7 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+
+
+
+
 
 __doc__ = """Code by Benjamin S. Murphy
 bscott.murphy@gmail.com
@@ -242,8 +242,8 @@ def _make_variogram_parameter_list(variogram_model, variogram_model_parameters):
 
         if variogram_model in ['linear']:
 
-            if 'slope' not in variogram_model_parameters.keys() \
-                    or 'nugget' not in variogram_model_parameters.keys():
+            if 'slope' not in list(variogram_model_parameters.keys()) \
+                    or 'nugget' not in list(variogram_model_parameters.keys()):
 
                 raise KeyError("'linear' variogram model requires 'slope' "
                                "and 'nugget' specified in variogram model "
@@ -256,9 +256,9 @@ def _make_variogram_parameter_list(variogram_model, variogram_model_parameters):
 
         elif variogram_model in ['power']:
 
-            if 'scale' not in variogram_model_parameters.keys() \
-                    or 'exponent' not in variogram_model_parameters.keys() \
-                    or 'nugget' not in variogram_model_parameters.keys():
+            if 'scale' not in list(variogram_model_parameters.keys()) \
+                    or 'exponent' not in list(variogram_model_parameters.keys()) \
+                    or 'nugget' not in list(variogram_model_parameters.keys()):
 
                 raise KeyError("'power' variogram model requires 'scale', "
                                "'exponent', and 'nugget' specified in "
@@ -273,8 +273,8 @@ def _make_variogram_parameter_list(variogram_model, variogram_model_parameters):
         elif variogram_model in ['gaussian', 'spherical', 'exponential',
                                  'hole-effect']:
 
-            if 'range' not in variogram_model_parameters.keys() \
-                    or 'nugget' not in variogram_model_parameters.keys():
+            if 'range' not in list(variogram_model_parameters.keys()) \
+                    or 'nugget' not in list(variogram_model_parameters.keys()):
 
                 raise KeyError("'%s' variogram model requires 'range', "
                                "'nugget', and either 'sill' or 'psill' "
@@ -283,14 +283,14 @@ def _make_variogram_parameter_list(variogram_model, variogram_model_parameters):
 
             else:
 
-                if 'sill' in variogram_model_parameters.keys():
+                if 'sill' in list(variogram_model_parameters.keys()):
 
                     parameter_list = [variogram_model_parameters['sill'] -
                                       variogram_model_parameters['nugget'],
                                       variogram_model_parameters['range'],
                                       variogram_model_parameters['nugget']]
 
-                elif 'psill' in variogram_model_parameters.keys():
+                elif 'psill' in list(variogram_model_parameters.keys()):
 
                     parameter_list = [variogram_model_parameters['psill'],
                                       variogram_model_parameters['range'],

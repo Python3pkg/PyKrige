@@ -1,7 +1,7 @@
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-from __future__ import unicode_literals
+
+
+
+
 
 __doc__ = """Code by Benjamin S. Murphy
 bscott.murphy@gmail.com
@@ -31,6 +31,7 @@ from . import core
 from .core import _adjust_for_anisotropy, _initialize_variogram_model, \
     _make_variogram_parameter_list, _find_statistics
 import warnings
+import collections
 
 
 class UniversalKriging:
@@ -336,10 +337,10 @@ class UniversalKriging:
 
         # set up variogram model and parameters...
         self.variogram_model = variogram_model
-        if self.variogram_model not in self.variogram_dict.keys() and self.variogram_model != 'custom':
+        if self.variogram_model not in list(self.variogram_dict.keys()) and self.variogram_model != 'custom':
             raise ValueError("Specified variogram model '%s' is not supported." % variogram_model)
         elif self.variogram_model == 'custom':
-            if variogram_function is None or not callable(variogram_function):
+            if variogram_function is None or not isinstance(variogram_function, collections.Callable):
                 raise ValueError("Must specify callable function for custom variogram model.")
             else:
                 self.variogram_function = variogram_function
@@ -595,10 +596,10 @@ class UniversalKriging:
                                        [self.anisotropy_angle]).T
 
         self.variogram_model = variogram_model
-        if self.variogram_model not in self.variogram_dict.keys() and self.variogram_model != 'custom':
+        if self.variogram_model not in list(self.variogram_dict.keys()) and self.variogram_model != 'custom':
             raise ValueError("Specified variogram model '%s' is not supported." % variogram_model)
         elif self.variogram_model == 'custom':
-            if variogram_function is None or not callable(variogram_function):
+            if variogram_function is None or not isinstance(variogram_function, collections.Callable):
                 raise ValueError("Must specify callable function for custom variogram model.")
             else:
                 self.variogram_function = variogram_function
@@ -679,7 +680,7 @@ class UniversalKriging:
         """Plots the epsilon residuals for the variogram fit."""
         fig = plt.figure()
         ax = fig.add_subplot(111)
-        ax.scatter(range(self.epsilon.size), self.epsilon, c='k', marker='*')
+        ax.scatter(list(range(self.epsilon.size)), self.epsilon, c='k', marker='*')
         ax.axhline(y=0.0)
         plt.show()
 
